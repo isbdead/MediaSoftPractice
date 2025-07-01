@@ -26,7 +26,7 @@ public class ParkMashin {
         } else {
             double sum = 0;
             for (int year : machinesAfter2015) {
-                sum += (2025 - year); 
+                sum += (2025 - year);
             }
             double averageAge = sum / machinesAfter2015.size();
             System.out.println("Средний возраст машин, выпущенных после 2015 года: " + averageAge);
