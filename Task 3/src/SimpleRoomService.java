@@ -1,0 +1,22 @@
+public class SimpleRoomService<T extends Room> implements RoomService<T> {
+
+    @Override
+    public void clean(T room) {
+        System.out.println("Комната " + room.getNumber_room() + " убрана.");
+    }
+
+    @Override
+    public void reserve(T room) {
+        if (room.isBooked()) {
+            throw new RoomAlreadyReservedExc("Комната " + room.getNumber_room() + " уже забронирована!");
+        }
+        room.setBooked(true);
+        System.out.println("Комната " + room.getNumber_room() + " успешно забронирована.");
+    }
+
+    @Override
+    public void free(T room) {
+        room.setBooked(false);
+        System.out.println("Комната " + room.getNumber_room() + " освобождена.");
+    }
+}
